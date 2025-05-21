@@ -1,14 +1,32 @@
+import '@mantine/core/styles.css'
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import cloudflareLogo from './assets/Cloudflare_Logo.svg'
-import './App.css'
+import { createTheme, MantineProvider, Text, Paper, Center, Container } from '@mantine/core';
+
+
+const theme = createTheme({
+  /** Put your mantine theme override here */
+});
 
 function App() {
   const [count, setCount] = useState(0)
   const [name, setName] = useState('unknown')
 
   return (
+    <MantineProvider>
+      {/* Your app here */}
+      <Container style={{width: "100%" }}>
+      <Center>
+        <Paper shadow="xs" p="xl">
+          <Text>
+            To get started, create a crew
+          </Text>
+        </Paper>
+      </Center>
+      </Container>
+    </MantineProvider>
+  )
+
+    /**
     <>
       <div>
         <a href='https://vite.dev' target='_blank'>
@@ -30,7 +48,7 @@ function App() {
           count is {count}
         </button>
         <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+          Edit <code>src/App.tsx</code> and saeeve to test HMR
         </p>
       </div>
       <div className='card'>
@@ -52,7 +70,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
+    */
 }
 
 export default App
