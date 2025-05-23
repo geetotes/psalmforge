@@ -3,7 +3,9 @@ import '@mantine/core/styles.css'
 import './App.css'
 import { useState } from 'react'
 import { createTheme, MantineProvider, Title, Text, Paper, Center, Flex } from '@mantine/core';
-import CrewList from './components/crewList.jsx'
+import { BrowserRouter, Routes, Route } from 'react-router'
+import CrewList from './components/crews/list.jsx'
+import MembersList from './components/members/list.jsx'
 
 const myColor = [
   '#fbf5ea',
@@ -31,6 +33,7 @@ function App() {
   const [count, setCount] = useState(0)
   const [name, setName] = useState('unknown')
 
+  /** This crazy router layout is a design decision to ensure all 'pages' live in this central themeed container */
   return (
     <MantineProvider theme={theme}>
       <Flex 
@@ -39,7 +42,12 @@ function App() {
         align={"center"}
       >
       <Center>
-        <CrewList />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<CrewList/>} />
+            <Route path="/crews/:id" element={<MembersList />} />
+          </Routes>
+        </BrowserRouter>
       </Center>
       </Flex>
     </MantineProvider>

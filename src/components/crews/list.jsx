@@ -1,4 +1,5 @@
-import { Table, Title, Text, Paper, Group, Button } from '@mantine/core';
+import { Table, Title, Text, Paper, Group } from '@mantine/core';
+import { Link } from 'react-router';
 import AddCrew from './addCrew.jsx';
 
 function CrewList() {
@@ -13,7 +14,7 @@ function CrewList() {
 
   const rows = crews.map((crew) => (
     <Table.Tr key={crew.id}>
-      <Table.Td>{crew.name}</Table.Td>
+      <Table.Td><Link to={`/crews/${crew.id}`} state={{ crew }}>{crew.name}</Link></Table.Td>
       <Table.Td>{crew.resources}</Table.Td>
       <Table.Td>{crew.experience}</Table.Td>
     </Table.Tr>
