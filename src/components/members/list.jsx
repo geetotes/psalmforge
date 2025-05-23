@@ -1,6 +1,7 @@
 import { Table, Title, Text, Paper, Group, Tabs } from '@mantine/core';
 import { Link } from 'react-router';
 import { useLocation } from 'react-router';
+import AddMember from './addMember.jsx';
 
 function MemberList() {
 
@@ -60,6 +61,7 @@ function MemberList() {
             {members.length > 5 ? 'A crew must have 5 members' : null}
           </Text>
           <Group justify="flex-end">
+              <AddMember />
           </Group>
         </Tabs.Panel>
 
